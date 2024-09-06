@@ -5,11 +5,11 @@
 class Tfsort < Formula
   desc "Sort Terraform files"
   homepage "https://github.com/AlexNabokikh/tfsort"
-  version "0.2.3"
+  version "0.2.4"
 
   on_macos do
-    url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.3/tfsort_0.2.3_darwin_all.tar.gz"
-    sha256 "b70ee3f9c816278613a4015ae6579faa2ead4ddd15e3686fdfd01756f936e0ad"
+    url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.4/tfsort_0.2.4_darwin_all.tar.gz"
+    sha256 "ea75f8728a6f51ce6d3f2e5de2f7614dec6eb5d474f41b209e309d7a02896c3e"
 
     def install
       bin.install "tfsort"
@@ -17,28 +17,34 @@ class Tfsort < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.3/tfsort_0.2.3_linux_armv6.tar.gz"
-      sha256 "54e98669eb71def511c126eb1d82a9495895300a41440a29f9512369ccd9911c"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.4/tfsort_0.2.4_linux_amd64.tar.gz"
+        sha256 "8c81e8bed03e87cfcd77ceae6b96893563d4b6ff1710f6ba46d8b42b7e0fc669"
 
-      def install
-        bin.install "tfsort"
+        def install
+          bin.install "tfsort"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.3/tfsort_0.2.3_linux_amd64.tar.gz"
-      sha256 "ed2b16089772d92497b3df88e3da89acb7464684c33366b2cfd58f133d7c91d6"
+    on_arm do
+      if !Hardware::CPU.is_64_bit?
+        url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.4/tfsort_0.2.4_linux_armv6.tar.gz"
+        sha256 "493b8644724b2711cd096ca0e8a8b9128b4bebcd70f78f21866d1f715e491bbb"
 
-      def install
-        bin.install "tfsort"
+        def install
+          bin.install "tfsort"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.3/tfsort_0.2.3_linux_arm64.tar.gz"
-      sha256 "7f80db1ce6bb93a299a75d50452153e86a6e60647b7143a81db751be06f97a38"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.2.4/tfsort_0.2.4_linux_arm64.tar.gz"
+        sha256 "ce663fdc674afd922e28b28214282e6eb76ff62edc858890c169c5b3640f0922"
 
-      def install
-        bin.install "tfsort"
+        def install
+          bin.install "tfsort"
+        end
       end
     end
   end
