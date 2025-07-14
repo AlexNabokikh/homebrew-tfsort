@@ -5,11 +5,11 @@
 class Tfsort < Formula
   desc "Sort Terraform files"
   homepage "https://github.com/AlexNabokikh/tfsort"
-  version "0.7.0"
+  version "0.7.1"
 
   on_macos do
-    url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.0/tfsort_0.7.0_darwin_all.tar.gz"
-    sha256 "015805cc5fd404ca82a312e82e5542450aea15e4115e1a09d136278bc83f414b"
+    url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.1/tfsort_0.7.1_darwin_all.tar.gz"
+    sha256 "eb4e75e9750871426d41f89e61bd8439671dd710be98c00e65741614f61ce45a"
 
     def install
       bin.install "tfsort"
@@ -18,22 +18,22 @@ class Tfsort < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.0/tfsort_0.7.0_linux_amd64.tar.gz"
-      sha256 "dd5903b043ee1847c33ee5c6a57a6581d5324c2536ee9f03c757e247e1c99272"
+      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.1/tfsort_0.7.1_linux_amd64.tar.gz"
+      sha256 "a306067c84b036d7c4f7726fc571fcf761bf4c1054598677feca71730a14a129"
       def install
         bin.install "tfsort"
       end
     end
     if Hardware::CPU.arm? and !Hardware::CPU.is_64_bit?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.0/tfsort_0.7.0_linux_armv6.tar.gz"
-      sha256 "4736dd8eaa60433500f25fcdb8a58a1387fb871123703757e45607d39a795f73"
+      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.1/tfsort_0.7.1_linux_armv6.tar.gz"
+      sha256 "14a7865372fa47e247d9920e649740f4a555f5fb6389129cd8f394272e98207d"
       def install
         bin.install "tfsort"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.0/tfsort_0.7.0_linux_arm64.tar.gz"
-      sha256 "1e8756ee792a04d3c036b4b6d67d485141f460eb1f41e4b10b44ca4b6a18c351"
+      url "https://github.com/AlexNabokikh/tfsort/releases/download/v0.7.1/tfsort_0.7.1_linux_arm64.tar.gz"
+      sha256 "962681c32d4eb4d0e33ea12c10bc1ce2c6cbb79e70fefe079460d98c7a199717"
       def install
         bin.install "tfsort"
       end
