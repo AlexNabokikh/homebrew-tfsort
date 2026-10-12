@@ -1,2 +1,3 @@
 # homebrew-tfsort
-A tfsort formula for Homebrew
+
+A tfsort cask for Homebrew
